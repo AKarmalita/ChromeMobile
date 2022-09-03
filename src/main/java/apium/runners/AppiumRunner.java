@@ -24,12 +24,9 @@ public class AppiumRunner {
     }
 
     @AfterClass
-    public static void end() {
-       // BaseAppiumSteps.driver.quit();
-        try{
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+    public static void end() throws InterruptedException {
+       Thread.sleep(10000);
+       BaseAppiumSteps.driver.close();
         }
     }
-}
+
